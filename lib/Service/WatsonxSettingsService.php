@@ -257,12 +257,11 @@ class WatsonxSettingsService {
 	 * @return array{api_key: string, project_id: string, space_id: string, is_custom_service: bool}
 	 */
 	public function getUserConfig(string $userId): array {
-		$isCustomService = $this->getServiceUrl() !== '' && !str_contains($this->getServiceUrl(), 'cloud.ibm.com');
 		return [
 			'api_key' => $this->getUserApiKey($userId),
 			'project_id' => $this->getUserProjectId($userId),
 			'space_id' => $this->getUserSpaceId($userId),
-			'is_custom_service' => $isCustomService,
+			'is_custom_service' => !$this->isUsingIbmCloud(),
 		];
 	}
 
@@ -565,5 +564,16 @@ class WatsonxSettingsService {
 	 */
 	public function setChatEndpointEnabled(bool $enabled): void {
 		$this->appConfig->setValueString(Application::APP_ID, 'chat_endpoint_enabled', $enabled ? '1' : '0', lazy: true);
+	}
+
+	////////////////////////////////////////////
+	//////////// Helpers for settings //////////
+
+	/**
+	 * @return bool
+	 * @throws Exception
+	 */
+	public function isUsingIbmCloud(): bool {
+		return $this->getServiceUrl() === '' || str_contains($this->getServiceUrl(), 'cloud.ibm.com');
 	}
 }
