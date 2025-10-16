@@ -124,15 +124,15 @@
 				<NcNoteCard v-if="isUsingIbmCloud" type="info">
 					{{ t('integration_watsonx', 'You can create an API key in your IBM Cloud IAM account settings') }}:
 					<br>
-					<a :href="apiKeyUrl" target="_blank" class="external">
-						{{ apiKeyUrl }}
+					<a :href="apiKeyDocsUrl" target="_blank" class="external">
+						{{ apiKeyDocsUrl }}
 					</a>
 				</NcNoteCard>
 				<NcNoteCard v-else type="info">
 					{{ t('integration_watsonx', 'You can create an API key in your IBM Cloud Pak for Data settings') }}:
 					<br>
-					<a :href="apiKeyCustomServiceUrl" target="_blank" class="external">
-						{{ apiKeyCustomServiceUrl }}
+					<a :href="customServiceApiKeyDocsUrl" target="_blank" class="external">
+						{{ customServiceApiKeyDocsUrl }}
 					</a>
 				</NcNoteCard>
 			</div>
@@ -426,8 +426,8 @@ export default {
 			selectedModel: {
 				text: null,
 			},
-			apiKeyUrl: 'https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey',
-			apiKeyCustomServiceUrl: 'https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=steps-generating-api-keys',
+			apiKeyDocsUrl: 'https://cloud.ibm.com/docs/account?topic=account-userapikey',
+			customServiceApiKeyDocsUrl: 'https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=steps-generating-api-keys',
 			quotaInfo: null,
 			llmExtraParamHint: t('integration_watsonx', 'JSON object. Check the API documentation to get the list of all available parameters. For example: {example}', { example: '{"stop":".","temperature":0.7}' }, null, { escape: false, sanitize: false }),
 			DEFAULT_MODEL_ITEM,
