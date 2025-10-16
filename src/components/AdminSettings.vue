@@ -88,6 +88,24 @@
 				<h2>
 					{{ t('integration_watsonx', 'Authentication') }}
 				</h2>
+				<div v-if="!isUsingIbmCloud" class="line">
+					<NcTextField
+						id="watsonx-username"
+						class="input"
+						:value.sync="state.username"
+						:label="t('integration_watsonx', 'Username (mandatory)')"
+						:show-trailing-button="!!state.username"
+						@update:value="onInput()"
+						@trailing-button-click="state.username = '' ; onInput()">
+						<AccountOutlineIcon />
+					</NcTextField>
+					<NcButton type="tertiary"
+						:title="t('integration_watsonx', 'A username is required to authenticate to a self-hosted service (via IBM Cloud Pak for Data)')">
+						<template #icon>
+							<HelpCircleOutlineIcon />
+						</template>
+					</NcButton>
+				</div>
 				<div class="line">
 					<NcTextField
 						id="watsonx-api-key"
@@ -95,7 +113,7 @@
 						:value.sync="state.api_key"
 						type="password"
 						:readonly="readonly"
-						:label="t('integration_watsonx', 'API key (mandatory with watsonx.ai)')"
+						:label="t('integration_watsonx', 'API key (mandatory)')"
 						:show-trailing-button="!!state.api_key"
 						@update:value="onSensitiveInput(true)"
 						@trailing-button-click="state.api_key = '' ; onSensitiveInput(true)"
@@ -103,11 +121,18 @@
 						<KeyOutlineIcon />
 					</NcTextField>
 				</div>
-				<NcNoteCard v-show="isUsingIbmCloud" type="info">
+				<NcNoteCard v-if="isUsingIbmCloud" type="info">
 					{{ t('integration_watsonx', 'You can create an API key in your IBM Cloud IAM account settings') }}:
 					<br>
 					<a :href="apiKeyUrl" target="_blank" class="external">
 						{{ apiKeyUrl }}
+					</a>
+				</NcNoteCard>
+				<NcNoteCard v-else type="info">
+					{{ t('integration_watsonx', 'You can create an API key in your IBM Cloud Pak for Data settings') }}:
+					<br>
+					<a :href="apiKeyCustomServiceUrl" target="_blank" class="external">
+						{{ apiKeyCustomServiceUrl }}
 					</a>
 				</NcNoteCard>
 			</div>
@@ -351,6 +376,7 @@
 </template>
 
 <script>
+import AccountOutlineIcon from 'vue-material-design-icons/AccountOutline.vue'
 import CloseIcon from 'vue-material-design-icons/Close.vue'
 import EarthIcon from 'vue-material-design-icons/Earth.vue'
 import HelpCircleOutlineIcon from 'vue-material-design-icons/HelpCircleOutline.vue'
@@ -377,6 +403,7 @@ export default {
 	name: 'AdminSettings',
 
 	components: {
+		AccountOutlineIcon,
 		KeyOutlineIcon,
 		CloseIcon,
 		EarthIcon,
@@ -400,6 +427,7 @@ export default {
 				text: null,
 			},
 			apiKeyUrl: 'https://cloud.ibm.com/docs/account?topic=account-iamtoken_from_apikey',
+			apiKeyCustomServiceUrl: 'https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=steps-generating-api-keys',
 			quotaInfo: null,
 			llmExtraParamHint: t('integration_watsonx', 'JSON object. Check the API documentation to get the list of all available parameters. For example: {example}', { example: '{"stop":".","temperature":0.7}' }, null, { escape: false, sanitize: false }),
 			DEFAULT_MODEL_ITEM,
@@ -415,7 +443,7 @@ export default {
 			return this.state.url.replace(/\/*$/, '/ml/v1/foundation_model_specs')
 		},
 		configured() {
-			return !!this.state.api_key
+			return !!this.state.api_key && (this.isUsingIbmCloud || !!this.state.username)
 		},
 		formattedModels() {
 			if (this.models) {
@@ -555,6 +583,7 @@ export default {
 		onInput: debounce(async function() {
 			const values = {
 				service_name: this.state.service_name,
+				username: this.state.username,
 				request_timeout: parseInt(this.state.request_timeout),
 				chunk_size: parseInt(this.state.chunk_size),
 				max_tokens: parseInt(this.state.max_tokens),
