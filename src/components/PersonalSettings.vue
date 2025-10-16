@@ -13,9 +13,26 @@
 				{{ t('integration_watsonx', 'Your administrator defined a custom service address') }}
 			</p>
 			<div>
-				<NcNoteCard type="info">
+				<NcNoteCard v-if="state.is_custom_service" type="info">
+					{{ t('integration_watsonx', 'Leave the username or API key empty to use the one defined by administrators') }}
+				</NcNoteCard>
+				<NcNoteCard v-else type="info">
 					{{ t('integration_watsonx', 'Leave the API key empty to use the one defined by administrators') }}
 				</NcNoteCard>
+				<div v-show="state.is_custom_service" class="line">
+					<NcTextField
+						id="watsonx-username"
+						class="input"
+						:value.sync="state.username"
+						:readonly="readonly"
+						:label="t('integration_watsonx', 'Username')"
+						:show-trailing-button="!!state.username"
+						@update:value="onInput"
+						@trailing-button-click="state.username = '' ; onInput()"
+						@focus="readonly = false">
+						<AccountOutlineIcon />
+					</NcTextField>
+				</div>
 				<div class="line">
 					<NcTextField
 						id="watsonx-api-key"
@@ -112,6 +129,7 @@
 </template>
 
 <script>
+import AccountOutlineIcon from 'vue-material-design-icons/AccountOutline.vue'
 import InformationOutlineIcon from 'vue-material-design-icons/InformationOutline.vue'
 import KeyOutlineIcon from 'vue-material-design-icons/KeyOutline.vue'
 
@@ -129,6 +147,7 @@ export default {
 	name: 'PersonalSettings',
 
 	components: {
+		AccountOutlineIcon,
 		KeyOutlineIcon,
 		InformationOutlineIcon,
 		NcNoteCard,
@@ -159,9 +178,11 @@ export default {
 	},
 
 	methods: {
-		onInput: debounce(function() {
-			this.saveOptions({
-			})
+		onInput: debounce(async function() {
+			const values = {
+				username: this.state.username,
+			}
+			await this.saveOptions(values, false)
 		}, 2000),
 		onSensitiveInput: debounce(function() {
 			if (this.state.api_key !== 'dummyApiKey') {
