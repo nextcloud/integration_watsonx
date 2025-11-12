@@ -37,7 +37,7 @@ OC.L10N.register(
     "Failed to load quota info" : "Kontingentinformationen konnten nicht geladen werden",
     "Watsonx.ai admin options saved" : "Watsonx.ai-Administrationseinstellungen gespeichert",
     "Failed to save watsonx.ai admin options" : "Watsonx.ai-Administrationseinstellungen konnten nicht gespeichert werden",
-    "The Assistant app is not enabled. You need it to use the features provided by the watsonx.ai integration app." : "Die Assistant-App ist nicht aktiviert. Sie benötigen sie, um die von der watsonx.ai -Integrations-App bereitgestellten Funktionen nutzen zu können.",
+    "The Assistant app is not enabled. You need it to use the features provided by the watsonx.ai integration app." : "Die Assistant-App ist nicht aktiviert. Sie benötigen sie, um die von der watsonx.ai -Einbindungs-App bereitgestellten Funktionen nutzen zu können.",
     "Assistant app" : "Assistant-App",
     "Service URL" : "Service-URL",
     "Example: {example}" : "Beispiel: {example}",
