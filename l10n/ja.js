@@ -18,10 +18,16 @@ OC.L10N.register(
     "Generated response" : "生成された応答",
     "The rewritten text in the desired tone, written by the assistant:" : "アシスタントが書き直した、希望するトーンの文章：",
     "Example: {example}" : "例: {プレースホルダー}",
+    "With the current configuration, the target URL used to get the models is:" : "現在の設定では、モデルを取得するために使用されるターゲットURLは次のとおりです：",
     "Request timeout (seconds)" : "リクエストがタイムアウトするまでの秒数",
     "Authentication" : "認証",
+    "Text completion endpoint" : "テキスト補完エンドポイント",
+    "Default completion model to use" : "使用するデフォルトの補完モデル",
     "Usage limits" : "使用制限",
+    "Usage quotas per time period" : "期間ごとの使用量制限",
     "Quota type" : "クォータのタイプ",
+    "Per-user quota / period" : "ユーザーごとの割り当て量／期間",
+    "Current system-wide usage / period" : "現在のシステム全体での使用量／期間",
     "API key" : "APIキー"
 },
 "nplurals=1; plural=0;");
