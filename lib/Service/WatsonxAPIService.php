@@ -597,7 +597,7 @@ class WatsonxAPIService {
 	 * @return array|null
 	 */
 	private function getAdminExtraParams(string $configKey): ?array {
-		$stringValue = $this->appConfig->getValueString(Application::APP_ID, $configKey);
+		$stringValue = $this->appConfig->getValueString(Application::APP_ID, $configKey, lazy: true);
 		if ($stringValue === '') {
 			return null;
 		}
@@ -612,7 +612,7 @@ class WatsonxAPIService {
 	 * @return int
 	 */
 	public function getExpTextProcessingTime(): int {
-		return intval($this->appConfig->getValueString(Application::APP_ID, 'watsonx_text_generation_time', strval(Application::DEFAULT_WATSONX_TEXT_GENERATION_TIME)));
+		return intval($this->appConfig->getValueString(Application::APP_ID, 'watsonx_text_generation_time', default: strval(Application::DEFAULT_WATSONX_TEXT_GENERATION_TIME), lazy: true));
 	}
 
 	/**
@@ -623,7 +623,7 @@ class WatsonxAPIService {
 		$oldTime = floatval($this->getExpTextProcessingTime());
 		$newTime = (1.0 - Application::EXPECTED_RUNTIME_LOWPASS_FACTOR) * $oldTime + Application::EXPECTED_RUNTIME_LOWPASS_FACTOR * floatval($runtime);
 
-		$this->appConfig->setValueString(Application::APP_ID, 'watsonx_text_generation_time', strval(intval($newTime)));
+		$this->appConfig->setValueString(Application::APP_ID, 'watsonx_text_generation_time', strval(intval($newTime)), lazy: true);
 	}
 
 	/**

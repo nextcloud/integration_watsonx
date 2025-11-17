@@ -36,7 +36,8 @@ class CleanupQuotaDb extends TimedJob {
 				intval($this->appConfig->getValueString(
 					Application::APP_ID,
 					'quota_period',
-					strval(Application::DEFAULT_QUOTA_PERIOD)
+					default: strval(Application::DEFAULT_QUOTA_PERIOD),
+					lazy: true
 				)),
 				Application::DEFAULT_QUOTA_PERIOD
 			)
