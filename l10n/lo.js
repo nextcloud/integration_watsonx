@@ -1,0 +1,17 @@
+OC.L10N.register(
+    "integration_watsonx",
+    {
+    "Default" : "ເລີ່ມຕົ້ນ",
+    "Detect language" : "Detect language",
+    "Change Tone" : "Change Tone",
+    "Input text" : "Input text",
+    "Write a text that you want the assistant to rewrite in another tone." : "Write a text that you want the assistant to rewrite in another tone.",
+    "Desired tone" : "Desired tone",
+    "In which tone should your text be rewritten?" : "In which tone should your text be rewritten?",
+    "Generated response" : "Generated response",
+    "The rewritten text in the desired tone, written by the assistant:" : "The rewritten text in the desired tone, written by the assistant:",
+    "Request timeout (seconds)" : "Request timeout (seconds)",
+    "Authentication" : "Authentication",
+    "API key" : "API key"
+},
+"nplurals=1; plural=0;");
