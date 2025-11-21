@@ -10,15 +10,15 @@ This app implements the following text generation providers
 using any freely-available large language model:
 Free prompt, Summarize, Headline, Context Write, Chat, and Reformulate.
 
-You can connect to the watsonx.ai service provided by IBM
-or to a self-hosted cluster running IBM Software Hub and related services.
+You can connect to the watsonx.ai service provided by IBM Cloud,
+or to a self-hosted cluster running IBM Software Hub and related services
+([IBM Cloud Pak for Data](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x) is also required in this case).
 
 ## Improve AI task pickup speed
 
 To avoid task processing execution delay,
 setup at 4 background job workers in the main server (where Nextcloud is installed).
-The setup process is documented here:
-https://docs.nextcloud.com/server/latest/admin_manual/ai/overview.html#improve-ai-task-pickup-speed
+Refer to the [admin documentation](https://docs.nextcloud.com/server/latest/admin_manual/ai/overview.html#improve-ai-task-pickup-speed) for the setup process.
 
 ## Ethical AI Rating
 
@@ -43,8 +43,6 @@ Learn more about the Nextcloud Ethical AI Rating [in our blog](https://nextcloud
 * Support for agency features (i.e. IBM watsonx as chat with tools provider)
 * Support for additional models without complete API functionality
   (see: https://www.ibm.com/watsonx/developer/get-started/models/)
-* Support for IBM Cloud Pak for Data Platform API
-  (for identity management on self-hosted instances)
 * Support for more than 100 models deployed in IBM watsonx.ai
 * Ability to select an IBM Cloud location from a dropdown list
   (as a workaround, enter the location's API URL manually)
