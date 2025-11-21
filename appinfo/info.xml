@@ -47,7 +47,7 @@ Learn more about the Nextcloud Ethical AI Rating [in our blog](https://nextcloud
 	<website>https://github.com/nextcloud/integration_watsonx</website>
 	<bugs>https://github.com/nextcloud/integration_watsonx/issues</bugs>
 	<dependencies>
-		<nextcloud min-version="30" max-version="32"/>
+		<nextcloud min-version="30" max-version="33"/>
 	</dependencies>
 	<background-jobs>
 		<job>OCA\Watsonx\Cron\CleanupQuotaDb</job>

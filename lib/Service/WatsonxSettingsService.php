@@ -66,7 +66,7 @@ class WatsonxSettingsService {
 	 * @throws Exception
 	 */
 	public function getAdminApiKey(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'api_key');
+		return $this->appConfig->getValueString(Application::APP_ID, 'api_key', lazy: true);
 	}
 
 	/**
@@ -90,7 +90,7 @@ class WatsonxSettingsService {
 	 * @return string
 	 */
 	public function getAdminProjectId(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'project_id');
+		return $this->appConfig->getValueString(Application::APP_ID, 'project_id', lazy: true);
 	}
 
 	/**
@@ -114,7 +114,7 @@ class WatsonxSettingsService {
 	 * @return string
 	 */
 	public function getAdminSpaceId(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'space_id');
+		return $this->appConfig->getValueString(Application::APP_ID, 'space_id', lazy: true);
 	}
 
 	/**
@@ -138,56 +138,56 @@ class WatsonxSettingsService {
 	 * @return string
 	 */
 	public function getAdminDefaultCompletionModelId(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'default_completion_model_id', Application::DEFAULT_COMPLETION_MODEL_ID) ?: Application::DEFAULT_COMPLETION_MODEL_ID;
+		return $this->appConfig->getValueString(Application::APP_ID, 'default_completion_model_id', Application::DEFAULT_COMPLETION_MODEL_ID, lazy: true) ?: Application::DEFAULT_COMPLETION_MODEL_ID;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getServiceUrl(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'url');
+		return $this->appConfig->getValueString(Application::APP_ID, 'url', lazy: true);
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getServiceName(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'service_name');
+		return $this->appConfig->getValueString(Application::APP_ID, 'service_name', lazy: true);
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getRequestTimeout(): int {
-		return intval($this->appConfig->getValueString(Application::APP_ID, 'request_timeout', strval(Application::WATSONX_DEFAULT_REQUEST_TIMEOUT))) ?: Application::WATSONX_DEFAULT_REQUEST_TIMEOUT;
+		return intval($this->appConfig->getValueString(Application::APP_ID, 'request_timeout', strval(Application::WATSONX_DEFAULT_REQUEST_TIMEOUT), lazy: true)) ?: Application::WATSONX_DEFAULT_REQUEST_TIMEOUT;
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getChunkSize(): int {
-		return $this->appConfig->getValueInt(Application::APP_ID, 'chunk_size', Application::DEFAULT_CHUNK_SIZE) ?: Application::DEFAULT_CHUNK_SIZE;
+		return $this->appConfig->getValueInt(Application::APP_ID, 'chunk_size', Application::DEFAULT_CHUNK_SIZE, lazy: true) ?: Application::DEFAULT_CHUNK_SIZE;
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getMaxTokens(): int {
-		return intval($this->appConfig->getValueString(Application::APP_ID, 'max_tokens', strval(Application::DEFAULT_MAX_NUM_OF_TOKENS))) ?: Application::DEFAULT_MAX_NUM_OF_TOKENS;
+		return intval($this->appConfig->getValueString(Application::APP_ID, 'max_tokens', strval(Application::DEFAULT_MAX_NUM_OF_TOKENS), lazy: true)) ?: Application::DEFAULT_MAX_NUM_OF_TOKENS;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getLlmExtraParams(): string {
-		return $this->appConfig->getValueString(Application::APP_ID, 'llm_extra_params');
+		return $this->appConfig->getValueString(Application::APP_ID, 'llm_extra_params', lazy: true);
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getQuotaPeriod(): int {
-		return intval($this->appConfig->getValueString(Application::APP_ID, 'quota_period', strval(Application::DEFAULT_QUOTA_PERIOD))) ?: Application::DEFAULT_QUOTA_PERIOD;
+		return intval($this->appConfig->getValueString(Application::APP_ID, 'quota_period', strval(Application::DEFAULT_QUOTA_PERIOD), lazy: true)) ?: Application::DEFAULT_QUOTA_PERIOD;
 	}
 
 	/**
@@ -196,8 +196,10 @@ class WatsonxSettingsService {
 	public function getQuotas(): array {
 		$quotas = json_decode(
 			$this->appConfig->getValueString(
-				Application::APP_ID, 'quotas',
-				json_encode(Application::DEFAULT_QUOTAS)
+				Application::APP_ID,
+				'quotas',
+				json_encode(Application::DEFAULT_QUOTAS),
+				lazy: true
 			) ?: json_encode(Application::DEFAULT_QUOTAS),
 			true,
 		);
@@ -211,7 +213,7 @@ class WatsonxSettingsService {
 					$quotas[$quotaType] = Application::DEFAULT_QUOTAS[$quotaType];
 				}
 			}
-			$this->appConfig->setValueString(Application::APP_ID, 'quotas', json_encode($quotas));
+			$this->appConfig->setValueString(Application::APP_ID, 'quotas', json_encode($quotas), lazy: true);
 		}
 
 		return $quotas;
@@ -221,7 +223,7 @@ class WatsonxSettingsService {
 	 * @return boolean
 	 */
 	public function getChatEndpointEnabled(): bool {
-		return $this->appConfig->getValueString(Application::APP_ID, 'chat_endpoint_enabled', '1') === '1';
+		return $this->appConfig->getValueString(Application::APP_ID, 'chat_endpoint_enabled', default: '1', lazy: true) === '1';
 	}
 
 	/**
@@ -268,7 +270,7 @@ class WatsonxSettingsService {
 	 * @return bool
 	 */
 	public function getLlmProviderEnabled(): bool {
-		return $this->appConfig->getValueString(Application::APP_ID, 'llm_provider_enabled', '1') === '1';
+		return $this->appConfig->getValueString(Application::APP_ID, 'llm_provider_enabled', default: '1', lazy: true) === '1';
 	}
 
 	////////////////////////////////////////////
@@ -295,7 +297,7 @@ class WatsonxSettingsService {
 			}
 		}
 
-		$this->appConfig->setValueString(Application::APP_ID, 'quotas', json_encode($quotas, JSON_THROW_ON_ERROR));
+		$this->appConfig->setValueString(Application::APP_ID, 'quotas', json_encode($quotas, JSON_THROW_ON_ERROR), lazy: true);
 	}
 
 	/**
@@ -304,7 +306,7 @@ class WatsonxSettingsService {
 	 */
 	public function setAdminApiKey(string $apiKey): void {
 		// No need to validate. As long as it's a string, we're happy campers
-		$this->appConfig->setValueString(Application::APP_ID, 'api_key', $apiKey, false, true);
+		$this->appConfig->setValueString(Application::APP_ID, 'api_key', $apiKey, lazy: true, sensitive: true);
 		$this->invalidateModelsCache();
 		$this->invalidateAccessTokenCache();
 	}
@@ -332,7 +334,7 @@ class WatsonxSettingsService {
 	 */
 	public function setAdminProjectId(string $projectId): void {
 		// No need to validate. As long as it's a string, we're happy campers
-		$this->appConfig->setValueString(Application::APP_ID, 'project_id', $projectId, false, true);
+		$this->appConfig->setValueString(Application::APP_ID, 'project_id', $projectId, lazy: true, sensitive: true);
 	}
 
 	/**
@@ -356,7 +358,7 @@ class WatsonxSettingsService {
 	 */
 	public function setAdminSpaceId(string $spaceId): void {
 		// No need to validate. As long as it's a string, we're happy campers
-		$this->appConfig->setValueString(Application::APP_ID, 'space_id', $spaceId, false, true);
+		$this->appConfig->setValueString(Application::APP_ID, 'space_id', $spaceId, lazy: true, sensitive: true);
 	}
 
 	/**
@@ -380,7 +382,7 @@ class WatsonxSettingsService {
 	 */
 	public function setAdminDefaultCompletionModelId(string $defaultCompletionModelId): void {
 		// No need to validate. As long as it's a string, we're happy campers
-		$this->appConfig->setValueString(Application::APP_ID, 'default_completion_model_id', $defaultCompletionModelId);
+		$this->appConfig->setValueString(Application::APP_ID, 'default_completion_model_id', $defaultCompletionModelId, lazy: true);
 	}
 
 	/**
@@ -393,7 +395,7 @@ class WatsonxSettingsService {
 		if (!filter_var($serviceUrl, FILTER_VALIDATE_URL) && $serviceUrl !== '') {
 			throw new Exception('Invalid service URL');
 		}
-		$this->appConfig->setValueString(Application::APP_ID, 'url', $serviceUrl);
+		$this->appConfig->setValueString(Application::APP_ID, 'url', $serviceUrl, lazy: true);
 		$this->invalidateModelsCache();
 		$this->invalidateAccessTokenCache();
 	}
@@ -404,7 +406,7 @@ class WatsonxSettingsService {
 	 * @throws Exception
 	 */
 	public function setServiceName(string $serviceName): void {
-		$this->appConfig->setValueString(Application::APP_ID, 'service_name', $serviceName);
+		$this->appConfig->setValueString(Application::APP_ID, 'service_name', $serviceName, lazy: true);
 	}
 
 	/**
@@ -414,7 +416,7 @@ class WatsonxSettingsService {
 	public function setRequestTimeout(int $requestTimeout): void {
 		// Validate input:
 		$requestTimeout = max(1, $requestTimeout);
-		$this->appConfig->setValueString(Application::APP_ID, 'request_timeout', strval($requestTimeout));
+		$this->appConfig->setValueString(Application::APP_ID, 'request_timeout', strval($requestTimeout), lazy: true);
 	}
 
 	/**
@@ -428,7 +430,7 @@ class WatsonxSettingsService {
 		if ($chunkSize) {
 			$chunkSize = max(Application::MIN_CHUNK_SIZE, $chunkSize);
 		}
-		$this->appConfig->setValueInt(Application::APP_ID, 'chunk_size', $chunkSize);
+		$this->appConfig->setValueInt(Application::APP_ID, 'chunk_size', $chunkSize, lazy: true);
 	}
 
 	/**
@@ -439,7 +441,7 @@ class WatsonxSettingsService {
 	public function setMaxTokens(int $maxTokens): void {
 		// Validate input:
 		$maxTokens = max(100, $maxTokens);
-		$this->appConfig->setValueString(Application::APP_ID, 'max_tokens', strval($maxTokens));
+		$this->appConfig->setValueString(Application::APP_ID, 'max_tokens', strval($maxTokens), lazy: true);
 	}
 
 	public function setLlmExtraParams(string $llmExtraParams): void {
@@ -449,7 +451,7 @@ class WatsonxSettingsService {
 				throw new Exception('Invalid model extra parameters, must be a valid JSON object string or an empty string');
 			}
 		}
-		$this->appConfig->setValueString(Application::APP_ID, 'llm_extra_params', $llmExtraParams);
+		$this->appConfig->setValueString(Application::APP_ID, 'llm_extra_params', $llmExtraParams, lazy: true);
 	}
 
 	/**
@@ -460,7 +462,7 @@ class WatsonxSettingsService {
 	public function setQuotaPeriod(int $quotaPeriod): void {
 		// Validate input:
 		$quotaPeriod = max(1, $quotaPeriod);
-		$this->appConfig->setValueString(Application::APP_ID, 'quota_period', strval($quotaPeriod));
+		$this->appConfig->setValueString(Application::APP_ID, 'quota_period', strval($quotaPeriod), lazy: true);
 	}
 
 	/**
@@ -474,7 +476,7 @@ class WatsonxSettingsService {
 		foreach (array_keys($adminConfig) as $key) {
 			$value = $adminConfig[$key];
 			if ($value === null) {
-				$this->config->deleteAppValue(Application::APP_ID, $key);
+				$this->appConfig->deleteKey(Application::APP_ID, $key);
 			} elseif (gettype($value) !== self::ADMIN_CONFIG_TYPES[$key]) {
 				throw new Exception('Invalid type for key: ' . $key . '. Expected ' . self::ADMIN_CONFIG_TYPES[$key] . ', got ' . gettype($value));
 			}
@@ -555,13 +557,13 @@ class WatsonxSettingsService {
 	 * @return void
 	 */
 	public function setLlmProviderEnabled(bool $enabled): void {
-		$this->appConfig->setValueString(Application::APP_ID, 'llm_provider_enabled', $enabled ? '1' : '0');
+		$this->appConfig->setValueString(Application::APP_ID, 'llm_provider_enabled', $enabled ? '1' : '0', lazy: true);
 	}
 
 	/**
 	 * @param bool $enabled
 	 */
 	public function setChatEndpointEnabled(bool $enabled): void {
-		$this->appConfig->setValueString(Application::APP_ID, 'chat_endpoint_enabled', $enabled ? '1' : '0');
+		$this->appConfig->setValueString(Application::APP_ID, 'chat_endpoint_enabled', $enabled ? '1' : '0', lazy: true);
 	}
 }

@@ -64,7 +64,7 @@ class Application extends App implements IBootstrap {
 
 	public function register(IRegistrationContext $context): void {
 		// Task processing
-		if ($this->appConfig->getValueString(Application::APP_ID, 'llm_provider_enabled', '1') === '1') {
+		if ($this->appConfig->getValueString(Application::APP_ID, 'llm_provider_enabled', default: '1', lazy: true) === '1') {
 			$context->registerTaskProcessingProvider(TextToTextProvider::class);
 			$context->registerTaskProcessingProvider(TextToTextChatProvider::class);
 			$context->registerTaskProcessingProvider(SummaryProvider::class);
