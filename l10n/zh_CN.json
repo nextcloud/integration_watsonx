@@ -10,6 +10,7 @@
     "Bad credentials" : "错误的凭据",
     "API request error: " : "API请求错误：",
     "Detect language" : "检测语言",
+    "Model" : "型号",
     "Change Tone" : "更改语气",
     "Input text" : "输入文本",
     "Write a text that you want the assistant to rewrite in another tone." : "写一篇您想让助手用另一种语气重写的文本。",
@@ -27,9 +28,11 @@
     "Request timeout (seconds)" : "请求超时时间（秒）",
     "Timeout for the request to the external API" : "外部API调用超时",
     "Authentication" : "身份认证",
+    "Completions" : "完成",
     "Default completion model to use" : "默认使用的补全模型",
     "Your administrator defined a custom service address" : "您的管理员定义了一个自定义服务地址",
     "Leave the API key empty to use the one defined by administrators" : "将API密钥留空以使用管理员定义的API密钥",
-    "API key" : "API密钥"
+    "API key" : "API密钥",
+    "Usage" : "使用量"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
