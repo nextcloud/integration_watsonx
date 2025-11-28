@@ -20,6 +20,7 @@ class WatsonxSettingsService {
 		'request_timeout' => 'integer',
 		'url' => 'string',
 		'service_name' => 'string',
+		'username' => 'string',
 		'api_key' => 'string',
 		'project_id' => 'string',
 		'space_id' => 'string',
@@ -34,6 +35,7 @@ class WatsonxSettingsService {
 	];
 
 	private const USER_CONFIG_TYPES = [
+		'username' => 'string',
 		'api_key' => 'string',
 		'project_id' => 'string',
 		'space_id' => 'string',
@@ -60,6 +62,30 @@ class WatsonxSettingsService {
 
 	////////////////////////////////////////////
 	//////////// Getters for settings //////////
+
+	/**
+	 * @return string
+	 * @throws Exception
+	 */
+	public function getAdminUsername(): string {
+		return $this->appConfig->getValueString(Application::APP_ID, 'username', lazy: true);
+	}
+
+	/**
+	 * SIC! Does not fall back on the admin api by default
+	 * @param null|string $userId
+	 * @param boolean $fallBackOnAdminValue
+	 * @return string
+	 * @throws Exception
+	 */
+	public function getUserUsername(?string $userId, bool $fallBackOnAdminValue = false): string {
+		$fallBackUsername = $fallBackOnAdminValue ? $this->getAdminUsername() : '';
+		if ($userId === null) {
+			return $fallBackUsername;
+		}
+		$userUsername = $this->config->getUserValue($userId, Application::APP_ID, 'username');
+		return $userUsername ?: $fallBackUsername;
+	}
 
 	/**
 	 * @return string
@@ -235,6 +261,7 @@ class WatsonxSettingsService {
 			'request_timeout' => $this->getRequestTimeout(),
 			'url' => $this->getServiceUrl(),
 			'service_name' => $this->getServiceName(),
+			'username' => $this->getAdminUsername(),
 			'api_key' => $this->getAdminApiKey(),
 			'project_id' => $this->getAdminProjectId(),
 			'space_id' => $this->getAdminSpaceId(),
@@ -254,15 +281,15 @@ class WatsonxSettingsService {
 
 	/**
 	 * Get the user config for the settings page
-	 * @return array{api_key: string, project_id: string, space_id: string, is_custom_service: bool}
+	 * @return array{username: string, api_key: string, project_id: string, space_id: string, is_custom_service: bool}
 	 */
 	public function getUserConfig(string $userId): array {
-		$isCustomService = $this->getServiceUrl() !== '' && !str_contains($this->getServiceUrl(), 'cloud.ibm.com');
 		return [
+			'username' => $this->getUserUsername($userId),
 			'api_key' => $this->getUserApiKey($userId),
 			'project_id' => $this->getUserProjectId($userId),
 			'space_id' => $this->getUserSpaceId($userId),
-			'is_custom_service' => $isCustomService,
+			'is_custom_service' => !$this->isUsingIbmCloud(),
 		];
 	}
 
@@ -298,6 +325,29 @@ class WatsonxSettingsService {
 		}
 
 		$this->appConfig->setValueString(Application::APP_ID, 'quotas', json_encode($quotas, JSON_THROW_ON_ERROR), lazy: true);
+	}
+
+	/**
+	 * @param string $username
+	 * @return void
+	 */
+	public function setAdminUsername(string $username): void {
+		// No need to validate. As long as it's a string, we're happy campers
+		$this->appConfig->setValueString(Application::APP_ID, 'username', $username, false, true);
+		$this->invalidateModelsCache();
+		$this->invalidateAccessTokenCache();
+	}
+
+	/**
+	 * @param string $userId
+	 * @param string $username
+	 * @throws PreConditionNotMetException
+	 */
+	public function setUserUsername(string $userId, string $username): void {
+		// No need to validate. As long as it's a string, we're happy campers
+		$this->config->setUserValue($userId, Application::APP_ID, 'username', $username);
+		$this->invalidateModelsCache();
+		$this->invalidateAccessTokenCache();
 	}
 
 	/**
@@ -492,6 +542,9 @@ class WatsonxSettingsService {
 		if (isset($adminConfig['service_name'])) {
 			$this->setServiceName($adminConfig['service_name']);
 		}
+		if (isset($adminConfig['username'])) {
+			$this->setAdminUsername($adminConfig['username']);
+		}
 		if (isset($adminConfig['api_key'])) {
 			$this->setAdminApiKey($adminConfig['api_key']);
 		}
@@ -541,6 +594,9 @@ class WatsonxSettingsService {
 		}
 
 		// Validation of the input values is done in the individual setters
+		if (isset($userConfig['username'])) {
+			$this->setUserUsername($userId, $userConfig['username']);
+		}
 		if (isset($userConfig['api_key'])) {
 			$this->setUserApiKey($userId, $userConfig['api_key']);
 		}
@@ -565,5 +621,16 @@ class WatsonxSettingsService {
 	 */
 	public function setChatEndpointEnabled(bool $enabled): void {
 		$this->appConfig->setValueString(Application::APP_ID, 'chat_endpoint_enabled', $enabled ? '1' : '0', lazy: true);
+	}
+
+	////////////////////////////////////////////
+	//////////// Helpers for settings //////////
+
+	/**
+	 * @return bool
+	 * @throws Exception
+	 */
+	public function isUsingIbmCloud(): bool {
+		return $this->getServiceUrl() === '' || str_contains($this->getServiceUrl(), 'cloud.ibm.com');
 	}
 }

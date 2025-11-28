@@ -138,10 +138,11 @@ class WatsonxAPIService {
 
 	/**
 	 * @param string $apiKey
+	 * @param string $username
 	 * @return string
 	 * @throws Exception
 	 */
-	public function getAccessToken(string $apiKey): string {
+	public function getAccessToken(string $apiKey, string $username = ''): string {
 		if ($this->accessTokenMemoryCache !== null) {
 			$this->logger->debug('Getting watsonx.ai access token from the memory cache');
 			return $this->accessTokenMemoryCache;
@@ -156,11 +157,16 @@ class WatsonxAPIService {
 
 		try {
 			$this->logger->debug('Actually getting IBM access token with a network request');
-			$params = [
-				'grant_type' => 'urn:ibm:params:oauth:grant-type:apikey',
-				'apikey' => $apiKey,
-			];
-			$accessTokenResponse = $this->requestIAM('/identity/token', $params, 'POST');
+			$params = $this->watsonxSettingsService->isUsingIbmCloud()
+				? [
+					'grant_type' => 'urn:ibm:params:oauth:grant-type:apikey',
+					'apikey' => $apiKey,
+				]
+				: [
+					'username' => $username,
+					'api_key' => $apiKey,
+				];
+			$accessTokenResponse = $this->requestIAM($params);
 		} catch (Exception $e) {
 			$this->logger->warning('Error retrieving access token (exc): ' . $e->getMessage());
 			$this->areCredsValid = false;
@@ -172,8 +178,15 @@ class WatsonxAPIService {
 			throw new Exception($accessTokenResponse['error'], Http::STATUS_INTERNAL_SERVER_ERROR);
 		}
 
-		$accessToken = $accessTokenResponse['access_token'];
-		$cache->set($cacheKey, $accessToken, $accessTokenResponse['expires_in']);
+		if ($this->watsonxSettingsService->isUsingIbmCloud()) {
+			$accessToken = $accessTokenResponse['access_token'];
+			$cache->set($cacheKey, $accessToken, $accessTokenResponse['expires_in']);
+		} else {
+			// These tokens do not expire, so use the NC default expiration time
+			$accessToken = $accessTokenResponse['token'];
+			$cache->set($cacheKey, $accessToken);
+		}
+
 		$this->accessTokenMemoryCache = $accessToken;
 		$this->areCredsValid = true;
 		return $accessToken;
@@ -645,6 +658,9 @@ class WatsonxAPIService {
 				return ['error' => 'An API key is required for watsonx.ai'];
 			}
 
+			// a username is mandatory only for self-hosted instances
+			$username = $this->watsonxSettingsService->getUserUsername($userId, true);
+
 			$serviceUrl = $this->watsonxSettingsService->getServiceUrl();
 			if ($serviceUrl === '') {
 				$serviceUrl = Application::WATSONX_API_BASE_URL;
@@ -653,7 +669,7 @@ class WatsonxAPIService {
 			$url = rtrim($serviceUrl, '/') . $endPoint;
 			$options = [
 				'headers' => [
-					'Authorization' => 'Bearer ' . $this->getAccessToken($apiKey),
+					'Authorization' => 'Bearer ' . $this->getAccessToken($apiKey, $username),
 					'User-Agent' => Application::USER_AGENT,
 				],
 			];
@@ -728,20 +744,24 @@ class WatsonxAPIService {
 
 	/**
 	 * Make an HTTP request to the IAM Identity Services API
-	 * @param string $endPoint The path to reach
+	 * (or IBM Cloud Pak for Data Platform API for self-hosted clusters)
 	 * @param array $params Query parameters (key/val pairs)
 	 * @param string $method HTTP query method
 	 * @return array decoded request result or error
 	 * @throws Exception
 	 */
-	public function requestIAM(string $endPoint, array $params = [], string $method = 'GET'): array {
+	public function requestIAM(array $params = [], string $method = 'POST'): array {
 		try {
-			$serviceUrl = 'https://iam.cloud.ibm.com';
+			$url = 'https://iam.cloud.ibm.com/identity/token';
 
-			$url = rtrim($serviceUrl, '/') . $endPoint;
+			if (!$this->watsonxSettingsService->isUsingIbmCloud()) {
+				$serviceUrl = $this->watsonxSettingsService->getServiceUrl();
+				$url = rtrim($serviceUrl, '/') . '/icp4d-api/v1/authorize';
+			}
+
 			$options = [
 				'headers' => [
-					'Content-Type' => 'application/x-www-form-urlencoded',
+					'Content-Type' => $this->watsonxSettingsService->isUsingIbmCloud() ? 'application/x-www-form-urlencoded' : 'application/json',
 					'User-Agent' => Application::USER_AGENT,
 				],
 			];
