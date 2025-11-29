@@ -7,6 +7,7 @@ OC.L10N.register(
     "Example: {example}" : "Contoh: {example}",
     "Request timeout (seconds)" : "Minta waktu habis (detik)",
     "Authentication" : "Otentikasi",
+    "Username" : "Username",
     "API key" : "Kunci API"
 },
 "nplurals=1; plural=0;");

@@ -5,6 +5,7 @@ OC.L10N.register(
     "Example: {example}" : "Për shembull: {example}",
     "Request timeout (seconds)" : "Kohë skadimi kërkese (sekonda)",
     "Authentication" : "Mirëfilltësim",
+    "Username" : "Emri i përdoruesit",
     "API key" : "Kyç API"
 },
 "nplurals=2; plural=(n != 1);");

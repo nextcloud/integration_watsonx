@@ -49,6 +49,7 @@
     "Select enabled features" : "قوزغىتىلغان ئىقتىدارلارنى تاللاڭ",
     "Your administrator defined a custom service address" : "باشقۇرغۇچىڭىز خاس مۇلازىمەت ئادرېسىنى بەلگىلىدى",
     "Leave the API key empty to use the one defined by administrators" : "باشقۇرغۇچى بەلگىلىگەن ئاچقۇچنى ئىشلىتىش ئۈچۈن API كۇنۇپكىسىنى بوش قويۇڭ",
+    "Username" : "ئىشلەتكۈچى ئىسمى",
     "API key" : "API ئاچقۇچى",
     "Usage quota info" : "ئىشلىتىش نورمىسى ئۇچۇرى",
     "Usage" : "ئىشلىتىش",

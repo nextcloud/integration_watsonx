@@ -28,6 +28,7 @@ OC.L10N.register(
     "Quota type" : "クォータのタイプ",
     "Per-user quota / period" : "ユーザーごとの割り当て量／期間",
     "Current system-wide usage / period" : "現在のシステム全体での使用量／期間",
+    "Username" : "ユーザー名",
     "API key" : "APIキー"
 },
 "nplurals=1; plural=0;");

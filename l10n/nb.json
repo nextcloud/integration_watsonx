@@ -40,6 +40,7 @@
     "Select enabled features" : "Velg aktiverte funksjoner",
     "Your administrator defined a custom service address" : "Administratoren din definerte en tilpasset tjenesteadresse",
     "Leave the API key empty to use the one defined by administrators" : "La API-nøkkelen være tom for å bruke den som er definert av administratorer",
+    "Username" : "Brukernavn",
     "API key" : "API-nøkkel",
     "Usage quota info" : "Informasjon om brukskvote",
     "Usage" : "Bruk",

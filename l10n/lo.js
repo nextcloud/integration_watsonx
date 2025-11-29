@@ -60,6 +60,7 @@ OC.L10N.register(
     "Text processing providers (to generate text, summarize, context write, etc.)" : "ຜູ້ໃຫ້ບໍລິການປະມວນຜົນຂໍ້ຄວາມ (ເພື່ອສ້າງຂໍ້ຄວາມ, ສະຫຼຸບ, ຂຽນຕາມບໍລິບົດ, ແລະ ອື່ນໆ)",
     "Your administrator defined a custom service address" : "ຜູ້ເບິ່ງແຍງລະບົບຂອງທ່ານໄດ້ກຳນົດທີ່ຢູ່ບໍລິການແບບກຳນົດເອງ",
     "Leave the API key empty to use the one defined by administrators" : "ປະວ່າງລະຫັດ API ໄວ້ເພື່ອໃຊ້ອັນທີ່ກຳນົດໂດຍຜູ້ເບິ່ງແຍງລະບົບ",
+    "Username" : "ຊື່ຜູ້ໃຊ້",
     "API key" : "API key",
     "Usage quota info" : "ຂໍ້ມູນໂຄວຕ້າການນຳໃຊ້",
     "Usage" : "ການນຳໃຊ້",

@@ -18,6 +18,7 @@ OC.L10N.register(
     "Default completion model to use" : "Standard kompletteringsmodell att använda",
     "Your administrator defined a custom service address" : "Din administratör har definierat en anpassad service-adress",
     "Leave the API key empty to use the one defined by administrators" : "Lämna API-nyckeln tom för att använda den som definierats av administratörer",
+    "Username" : "Användarnamn",
     "API key" : "API-nyckel"
 },
 "nplurals=2; plural=(n != 1);");

@@ -20,6 +20,7 @@ OC.L10N.register(
     "Select enabled features" : "Válassza ki az engedélyezett funkciókat",
     "Your administrator defined a custom service address" : "A rendszergazda egyedi szolgáltatási címet adott meg",
     "Leave the API key empty to use the one defined by administrators" : "Hagyja üresen az API kulcsot, hogy az adminisztrátor által beállítottat használja.",
+    "Username" : "Felhasználónév",
     "API key" : "API kulcs",
     "Usage quota info" : "Használati kvóta információ",
     "Usage" : "Felhasználás",

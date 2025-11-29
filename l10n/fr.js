@@ -65,6 +65,7 @@ OC.L10N.register(
     "Text processing providers (to generate text, summarize, context write, etc.)" : "Service de génération de texte (pour générer du texte, résumer, écrire contextuellement, etc.)",
     "Your administrator defined a custom service address" : "Votre administrateur a défini une adresse de service spécifique",
     "Leave the API key empty to use the one defined by administrators" : "Laisser la clé d'API vide pour utiliser celle définie par l'administrateur",
+    "Username" : "Nom d'utilisateur",
     "API key" : "Clé API",
     "Usage quota info" : "Info sur l'utilisation du quota",
     "Usage" : "Usage",

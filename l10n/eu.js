@@ -24,6 +24,7 @@ OC.L10N.register(
     "Completions" : "Osaketak",
     "Usage limits" : "Erabilpen mugak",
     "Quota type" : "Kuota mota",
+    "Username" : "Erabiltzaile-izena",
     "API key" : "APIaren gakoa",
     "Usage" : "Erabilpena"
 },

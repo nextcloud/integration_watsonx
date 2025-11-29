@@ -8,6 +8,7 @@ OC.L10N.register(
     "Example: {example}" : "Dæmi: {example}",
     "Request timeout (seconds)" : "Tímamörk á beiðni (sekúndur)",
     "Authentication" : "Auðkenning",
+    "Username" : "Notandanafn",
     "API key" : "API-lykill"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

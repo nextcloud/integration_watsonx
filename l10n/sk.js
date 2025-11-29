@@ -16,6 +16,7 @@ OC.L10N.register(
     "Example: {example}" : "Napríklad: {example}",
     "Request timeout (seconds)" : "Timeout požiadavky (s)",
     "Authentication" : "Autentifikácia",
+    "Username" : "Užívateľské meno",
     "API key" : "API kľúč"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

@@ -5,6 +5,7 @@
     "Example: {example}" : "Contoh: {example}",
     "Request timeout (seconds)" : "Minta waktu habis (detik)",
     "Authentication" : "Otentikasi",
+    "Username" : "Username",
     "API key" : "Kunci API"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

@@ -5,6 +5,7 @@ OC.L10N.register(
     "Bad credentials" : "Nederīgi pieteikšanās dati",
     "Example: {example}" : "Piemērs: {example}",
     "Authentication" : "Autentifikācija",
+    "Username" : "Lietotājvārds",
     "API key" : "API atslēga"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

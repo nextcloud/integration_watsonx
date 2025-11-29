@@ -6,6 +6,7 @@ OC.L10N.register(
     "Bad credentials" : "Credentziales non bàlidas",
     "Request timeout (seconds)" : "Tempus màssimu de sa rechesta (segundos)",
     "Authentication" : "Autenticatzione",
+    "Username" : "Nùmene utente",
     "API key" : "Crae API"
 },
 "nplurals=2; plural=(n != 1);");

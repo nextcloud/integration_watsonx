@@ -7,6 +7,7 @@ OC.L10N.register(
     "Example: {example}" : "דוגמה: {example}",
     "Request timeout (seconds)" : "פסק זמן מבוקש (שניות)",
     "Authentication" : "אימות",
+    "Username" : "שם משתמש",
     "API key" : "מפתח API"
 },
 "nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;");

@@ -9,6 +9,7 @@ OC.L10N.register(
     "Example: {example}" : "Esimerkki: {example}",
     "Request timeout (seconds)" : "Pyynnön aikakatkaisu (sekunneissa)",
     "Authentication" : "Tunnistautuminen",
+    "Username" : "Käyttäjätunnus",
     "API key" : "API-avain"
 },
 "nplurals=2; plural=(n != 1);");

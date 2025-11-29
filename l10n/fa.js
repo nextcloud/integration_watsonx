@@ -19,6 +19,7 @@ OC.L10N.register(
     "Default completion model to use" : "Default completion model to use",
     "Your administrator defined a custom service address" : "Your administrator defined a custom service address",
     "Leave the API key empty to use the one defined by administrators" : "Leave the API key empty to use the one defined by administrators",
+    "Username" : "نام کاربری",
     "API key" : "کلید API "
 },
 "nplurals=2; plural=(n > 1);");

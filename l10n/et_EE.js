@@ -39,7 +39,6 @@ OC.L10N.register(
     "Service name (optional)" : "Teenuse nimi (valikuline)",
     "Request timeout (seconds)" : "Päringu aegumine (sekundites)",
     "Authentication" : "Autentimine",
-    "API key (mandatory with watsonx.ai)" : "API võto (watsonx.ai puhul kohustuslik)",
     "You can create an API key in your IBM Cloud IAM account settings" : "API võtme saad luua oma IBM Cloud IAM kasutajakonto seadistustes",
     "Text completion endpoint" : "Tekstiloome teenuse otspunkt",
     "Max input tokens per request" : "Päringu sisendsõnede ülempiir",
@@ -55,6 +54,7 @@ OC.L10N.register(
     "Failed to save watsonx.ai options" : "Ei õnnestunud salvestada watsonx.ai eelistusi",
     "Your administrator defined a custom service address" : "Sinu serveri peakasutaja on teenuse aadressi eelseadistanud",
     "Leave the API key empty to use the one defined by administrators" : "Kasutamaks peakasutaja eelseadistanud väärtust jäta API võtme väli tühjaks",
+    "Username" : "Kasutajanimi",
     "API key" : "API võti",
     "Usage quota info" : "Kasutuskvoodi teave",
     "Usage" : "Kasutus"

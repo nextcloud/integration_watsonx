@@ -5,6 +5,7 @@ OC.L10N.register(
     "Example: {example}" : "მაგალითი: {example}",
     "Request timeout (seconds)" : "მოთხოვნის დროის ამოწურვა (წამები)",
     "Authentication" : "აუტენტიფიკაცია",
+    "Username" : "მომხმარებლის სახელი",
     "API key" : "API გასაღები"
 },
 "nplurals=2; plural=(n!=1);");

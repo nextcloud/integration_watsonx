@@ -22,6 +22,7 @@
     "Completions" : "Osaketak",
     "Usage limits" : "Erabilpen mugak",
     "Quota type" : "Kuota mota",
+    "Username" : "Erabiltzaile-izena",
     "API key" : "APIaren gakoa",
     "Usage" : "Erabilpena"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

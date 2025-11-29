@@ -16,6 +16,7 @@ OC.L10N.register(
     "Request timeout (seconds)" : "Zahtevan časovni zamik (sekunde)",
     "Authentication" : "Overitev",
     "Usage limits" : "Omejitve uporabe",
+    "Username" : "Uporabniško ime",
     "API key" : "Ključ API",
     "Usage" : "Uporaba"
 },

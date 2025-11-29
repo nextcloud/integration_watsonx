@@ -32,6 +32,7 @@
     "Default completion model to use" : "默认使用的补全模型",
     "Your administrator defined a custom service address" : "您的管理员定义了一个自定义服务地址",
     "Leave the API key empty to use the one defined by administrators" : "将API密钥留空以使用管理员定义的API密钥",
+    "Username" : "用户名",
     "API key" : "API密钥",
     "Usage" : "使用量"
 },"pluralForm" :"nplurals=1; plural=0;"
