@@ -6,6 +6,7 @@ OC.L10N.register(
     "Example: {example}" : "Exemplu: {example}",
     "Request timeout (seconds)" : "Tiempu d'espera de les solicitúes (segundos)",
     "Authentication" : "Autenticación",
+    "Username" : "Nome d'usuariu",
     "API key" : "Clave de l'API"
 },
 "nplurals=2; plural=(n != 1);");

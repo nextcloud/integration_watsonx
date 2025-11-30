@@ -12,6 +12,7 @@ OC.L10N.register(
     "Quota type" : "Тып квоты",
     "Max new tokens per request" : "Максімальная колькасць новых токенаў на запыт",
     "Maximum number of new tokens generated for a single text generation prompt" : "Максімальная колькасць выходных токенаў, якія ствараюцца для аднаго запыту генерацыі тэксту",
+    "Username" : "Імя карыстальніка",
     "API key" : "Ключ API"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

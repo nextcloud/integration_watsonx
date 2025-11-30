@@ -10,6 +10,7 @@ OC.L10N.register(
     "Authentication" : "Удостоверяване",
     "Default completion model to use" : "Модел на изпълнение по подразбиране, който да използвате",
     "Leave the API key empty to use the one defined by administrators" : "Оставяне на празен API ключ, за да се използва този, определен от администраторите",
+    "Username" : "Потребител",
     "API key" : "API ключ"
 },
 "nplurals=2; plural=(n != 1);");

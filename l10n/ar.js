@@ -61,6 +61,7 @@ OC.L10N.register(
     "Select enabled features" : "إختَر الخصائص المُمَكّنة",
     "Your administrator defined a custom service address" : "حدد المسؤول الخاص بك عنوان خدمة مخصص",
     "Leave the API key empty to use the one defined by administrators" : "أترُك مفتاح واجهة برمجة التطبيقات فارغًا ليتم استخدام المفتاح الذي حدده مسؤولو النظام",
+    "Username" : "اسم المستخدم",
     "API key" : "مفتاح واجهة برمجة التطبيقات API key",
     "Usage quota info" : "معلومات حصص الاستعمال",
     "Usage" : "الاستعمال",
