@@ -47,6 +47,8 @@
     "Request timeout (seconds)" : "İstek zaman aşımı (saniye)",
     "Timeout for the request to the external API" : "Dış API isteğinin zaman aşımı",
     "Authentication" : "Kimlik doğrulama",
+    "Username (mandatory)" : "Kullanıcı adı (zorunlu)",
+    "A username is required to authenticate to a self-hosted service (via IBM Cloud Pak for Data)" : "Kendinizin barındırdığı bir hizmette kimlik doğrulaması yapmak için bir kullanıcı adı zorunludur (IBM Cloud Pak for Data ile)",
     "You can create an API key in your IBM Cloud IAM account settings" : "IBM Cloud IAM hesap ayarlarınızdan bir API anahtarı oluşturabilirsiniz",
     "Cloud Resources" : "Bulut kaynakları",
     "Project ID" : "Proje kimliği",
