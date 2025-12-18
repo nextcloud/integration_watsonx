@@ -54,7 +54,7 @@ OC.L10N.register(
     "A username is required to authenticate to a self-hosted service (via IBM Cloud Pak for Data)" : "Zur Authentifizierung bei einem selbstgehosteten Dienst (über IBM Cloud Pak for Data) ist ein Benutzername erforderlich",
     "API key (mandatory)" : "API-Schlüssel (erforderlich)",
     "You can create an API key in your IBM Cloud IAM account settings" : "Du kannst einen API-Schlüssel in deinem IBM Cloud IAM-Kontoeinstellungen erstellen",
-    "You can create an API key in your IBM Cloud Pak for Data settings" : "Du kannst einen API-Schlüssel in Ihren IBM Cloud Pak for Data-Einstellungen erstellen",
+    "You can create an API key in your IBM Cloud Pak for Data settings" : "Du kannst einen API-Schlüssel in deinem IBM Cloud Pak for Data-Einstellungen erstellen",
     "Cloud Resources" : "Cloud-Ressourcen",
     "Project ID" : "Projekt-ID",
     "Space ID" : "Space-ID",
