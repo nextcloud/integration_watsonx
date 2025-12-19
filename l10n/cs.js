@@ -79,6 +79,7 @@ OC.L10N.register(
     "Failed to save watsonx.ai options" : "Předvolby pro watsonx.ai se nepodařilo uložit",
     "Your administrator defined a custom service address" : "Správce definoval jím určenou adresu služby",
     "Leave the API key empty to use the one defined by administrators" : "Pokud chcete využít klíč k API, definovaný správci, pak ho zde nevyplňujte",
+    "Username" : "Uživatelské jméno",
     "API key" : "Klíč k aplikačnímu program. rozhraní (API)",
     "A watsonx.ai project ID or space ID is required if an API key is specified" : "Při zadání klíče k API, je zapotřebí také identif. projektu nebo identif. prostoru v rámci watsonx.ai",
     "Usage quota info" : "Informace o využití kvóty",

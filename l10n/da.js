@@ -60,6 +60,7 @@ OC.L10N.register(
     "Select enabled features" : "Vælg aktiverede funktioner",
     "Your administrator defined a custom service address" : "Din administrator definerede en brugerdefineret serviceadresse",
     "Leave the API key empty to use the one defined by administrators" : "Lad API nøglen være tom for at anvende den der er defineret af administratorerne",
+    "Username" : "Brugernavn",
     "API key" : "API nøgle",
     "Usage quota info" : "Anvendelses kvoteinfo",
     "Usage" : "Anvendelse",

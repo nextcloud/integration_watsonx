@@ -77,6 +77,7 @@
     "Failed to save watsonx.ai options" : "Αποτυχία αποθήκευσης των επιλογών watsonx.ai",
     "Your administrator defined a custom service address" : "Ο διαχειριστής σας όρισε μια προσαρμοσμένη διεύθυνση υπηρεσίας",
     "Leave the API key empty to use the one defined by administrators" : "Αφήστε το κλειδί API κενό για να χρησιμοποιήσετε αυτό που ορίζουν οι διαχειριστές",
+    "Username" : "Όνομα χρήστη",
     "API key" : "Κλειδί API",
     "A watsonx.ai project ID or space ID is required if an API key is specified" : "Απαιτείται ένα αναγνωριστικό έργου watsonx.ai ή ένα αναγνωριστικό χώρου εάν έχει καθοριστεί ένα κλειδί API.",
     "Usage quota info" : "Πληροφορίες ποσόστωσης χρήσης",
