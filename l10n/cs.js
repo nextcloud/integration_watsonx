@@ -49,6 +49,7 @@ OC.L10N.register(
     "Request timeout (seconds)" : "Časový limit požadavku (sekundy)",
     "Timeout for the request to the external API" : "Časový limit pro požadavky na externí API",
     "Authentication" : "Ověřování se",
+    "Username (mandatory)" : "Uživatelské jméno (povinné)",
     "You can create an API key in your IBM Cloud IAM account settings" : "Klíč k API je možné si vytvořit v nastavení vašeho účtu u IBM Cloud IAM.",
     "Cloud Resources" : "Cloudové prostředky",
     "Project ID" : "Identif. projektu",
