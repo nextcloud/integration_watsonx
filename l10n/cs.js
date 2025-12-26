@@ -50,6 +50,7 @@ OC.L10N.register(
     "Timeout for the request to the external API" : "Časový limit pro požadavky na externí API",
     "Authentication" : "Ověřování se",
     "Username (mandatory)" : "Uživatelské jméno (povinné)",
+    "A username is required to authenticate to a self-hosted service (via IBM Cloud Pak for Data)" : "Pro ověření se vůči službě provozované u vás (prostřednictvím IBM Cloud Pak pro data) je zapotřebí uživatelské jméno",
     "API key (mandatory)" : "Klíč k API (je třeba vyplnit)",
     "You can create an API key in your IBM Cloud IAM account settings" : "Klíč k API je možné si vytvořit v nastavení vašeho účtu u IBM Cloud IAM.",
     "Cloud Resources" : "Cloudové prostředky",
