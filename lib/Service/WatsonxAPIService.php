@@ -768,7 +768,7 @@ class WatsonxAPIService {
 					$paramsContent = http_build_query($params);
 					$url .= '?' . $paramsContent;
 				} else {
-					$options['body'] = $params;
+					$options['body'] = $this->watsonxSettingsService->isUsingIbmCloud() ? $params : json_encode($params);
 				}
 			}
 
