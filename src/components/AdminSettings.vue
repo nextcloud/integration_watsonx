@@ -19,12 +19,12 @@
 					<!-- TODO: select from multiple IBM locations -->
 					<NcTextField
 						id="watsonx-url"
+						v-model="state.url"
 						class="input"
-						:value.sync="state.url"
 						:label="t('integration_watsonx', 'Service URL')"
 						:placeholder="t('integration_watsonx', 'Example: {example}', { example: 'http://your-cluster.domain/wx' })"
 						:show-trailing-button="!!state.url"
-						@update:value="onSensitiveInput(true)"
+						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.url = '' ; onSensitiveInput(true)">
 						<EarthIcon />
 					</NcTextField>
@@ -46,12 +46,12 @@
 				<div v-if="!isUsingIbmCloud" class="line">
 					<NcTextField
 						id="watsonx-service-name"
+						v-model="state.service_name"
 						class="input"
-						:value.sync="state.service_name"
 						:label="t('integration_watsonx', 'Service name (optional)')"
 						:placeholder="t('integration_watsonx', 'Example: watsonx.ai of university ABC')"
 						:show-trailing-button="!!state.service_name"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.service_name = '' ; onInput()" />
 					<NcButton type="tertiary"
 						:title="t('integration_watsonx', 'This name will be displayed as provider name in the AI admin settings')">
@@ -63,13 +63,13 @@
 				<div class="line">
 					<NcInputField
 						id="watsonx-api-timeout"
+						v-model="state.request_timeout"
 						class="input"
-						:value.sync="state.request_timeout"
 						type="number"
 						:label="t('integration_watsonx', 'Request timeout (seconds)')"
 						:placeholder="t('integration_watsonx', 'Example: {example}', { example: '240' })"
 						:show-trailing-button="!!state.request_timeout"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.request_timeout = '' ; onInput()">
 						<TimerAlertOutlineIcon />
 						<template #trailing-button-icon>
@@ -91,11 +91,11 @@
 				<div v-if="!isUsingIbmCloud" class="line">
 					<NcTextField
 						id="watsonx-username"
+						v-model="state.username"
 						class="input"
-						:value.sync="state.username"
 						:label="t('integration_watsonx', 'Username (mandatory)')"
 						:show-trailing-button="!!state.username"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.username = '' ; onInput()">
 						<AccountOutlineIcon />
 					</NcTextField>
@@ -109,13 +109,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-api-key"
+						v-model="state.api_key"
 						class="input"
-						:value.sync="state.api_key"
 						type="password"
 						:readonly="readonly"
 						:label="t('integration_watsonx', 'API key (mandatory)')"
 						:show-trailing-button="!!state.api_key"
-						@update:value="onSensitiveInput(true)"
+						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.api_key = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -143,13 +143,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-project-id"
+						v-model="state.project_id"
 						class="input"
-						:value.sync="state.project_id"
 						type="password"
 						:readonly="readonly"
 						:label="t('integration_watsonx', 'Project ID')"
 						:show-trailing-button="!!state.project_id"
-						@update:value="onSensitiveInput(true)"
+						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.project_id = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -158,13 +158,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-space-id"
+						v-model="state.space_id"
 						class="input"
-						:value.sync="state.space_id"
 						type="password"
 						:readonly="readonly"
 						:label="t('integration_watsonx', 'Space ID')"
 						:show-trailing-button="!!state.space_id"
-						@update:value="onSensitiveInput(true)"
+						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.space_id = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -186,20 +186,20 @@
 					<div class="radios">
 						<NcCheckboxRadioSwitch
 							:button-variant="true"
-							:checked="state.chat_endpoint_enabled"
+							:model-value="state.chat_endpoint_enabled"
 							type="radio"
 							button-variant-grouped="horizontal"
 							name="chat_endpoint"
-							@update:checked="onCheckboxChanged(true, 'chat_endpoint_enabled', false)">
+							@update:model-value="onCheckboxChanged(true, 'chat_endpoint_enabled', false)">
 							{{ t('assistant', 'Chat completions') }}
 						</NcCheckboxRadioSwitch>
 						<NcCheckboxRadioSwitch
 							:button-variant="true"
-							:checked="!state.chat_endpoint_enabled"
+							:model-value="!state.chat_endpoint_enabled"
 							type="radio"
 							button-variant-grouped="horizontal"
 							name="chat_endpoint"
-							@update:checked="onCheckboxChanged(false, 'chat_endpoint_enabled', false)">
+							@update:model-value="onCheckboxChanged(false, 'chat_endpoint_enabled', false)">
 							{{ t('assistant', 'Completions') }}
 						</NcCheckboxRadioSwitch>
 					</div>
@@ -218,7 +218,7 @@
 						:input-label="t('integration_watsonx', 'Default completion model to use')"
 						:no-wrap="true"
 						input-id="watsonx-model-select"
-						@input="onModelSelected('text', $event)" />
+						@update:model-value="onModelSelected('text', $event)" />
 					<a v-if="isUsingIbmCloud"
 						:title="t('integration_watsonx', 'More information about IBM watsonx.ai as a Service')"
 						href="https://cloud.ibm.com/apidocs/watsonx-ai"
@@ -243,11 +243,11 @@
 				<div class="line">
 					<NcTextField
 						id="llm-extra-params"
+						v-model="state.llm_extra_params"
 						class="input"
-						:value.sync="state.llm_extra_params"
 						:label="t('integration_watsonx', 'Extra completion model parameters')"
 						:show-trailing-button="!!state.llm_extra_params"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.llm_extra_params = '' ; onInput()" />
 					<NcButton type="tertiary"
 						:title="llmExtraParamHint">
@@ -260,12 +260,12 @@
 					<!--Input for max chunk size (prompt length) for a single request-->
 					<NcInputField
 						id="watsonx-chunk-size"
+						v-model="state.chunk_size"
 						class="input"
 						type="number"
-						:value.sync="state.chunk_size"
 						:label="t('integration_watsonx', 'Max input tokens per request')"
 						:show-trailing-button="!!state.chunk_size"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.chunk_size = '' ; onInput()">
 						<template #trailing-button-icon>
 							<CloseIcon :size="20" />
@@ -287,12 +287,12 @@
 					<!--Time period in days for the token usage-->
 					<NcInputField
 						id="watsonx-api-quota-period"
+						v-model="state.quota_period"
 						class="input"
 						type="number"
-						:value.sync="state.quota_period"
 						:label="t('integration_watsonx', 'Quota enforcement time period (days)')"
 						:show-trailing-button="!!state.quota_period"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.quota_period = '' ; onInput()">
 						<template #trailing-button-icon>
 							<CloseIcon :size="20" />
@@ -342,12 +342,12 @@
 					<!--Only enforced if the user has not provided an own API key-->
 					<NcInputField
 						id="watsonx-api-max-tokens"
+						v-model="state.max_tokens"
 						class="input"
 						type="number"
-						:value.sync="state.max_tokens"
 						:label="t('integration_watsonx', 'Max new tokens per request')"
 						:show-trailing-button="!!state.max_tokens"
-						@update:value="onInput()"
+						@update:model-value="onInput()"
 						@trailing-button-click="state.max_tokens = '' ; onInput()">
 						<template #trailing-button-icon>
 							<CloseIcon :size="20" />
@@ -366,8 +366,8 @@
 					{{ t('integration_watsonx', 'Select enabled features') }}
 				</h2>
 				<NcCheckboxRadioSwitch
-					:checked="state.llm_provider_enabled"
-					@update:checked="onCheckboxChanged($event, 'llm_provider_enabled', false)">
+					:model-value="state.llm_provider_enabled"
+					@update:model-value="onCheckboxChanged($event, 'llm_provider_enabled', false)">
 					{{ t('integration_watsonx', 'Text processing providers (to generate text, summarize, context write, etc.)') }}
 				</NcCheckboxRadioSwitch>
 			</div>
@@ -383,12 +383,12 @@ import HelpCircleOutlineIcon from 'vue-material-design-icons/HelpCircleOutline.v
 import KeyOutlineIcon from 'vue-material-design-icons/KeyOutline.vue'
 import TimerAlertOutlineIcon from 'vue-material-design-icons/TimerAlertOutline.vue'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcInputField from '@nextcloud/vue/dist/Components/NcInputField.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
-import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
-import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcInputField from '@nextcloud/vue/components/NcInputField'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
+import NcSelect from '@nextcloud/vue/components/NcSelect'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
 
 import axios from '@nextcloud/axios'
 import { showError, showSuccess } from '@nextcloud/dialogs'

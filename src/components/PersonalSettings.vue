@@ -22,12 +22,12 @@
 				<div v-show="state.is_custom_service" class="line">
 					<NcTextField
 						id="watsonx-username"
+						v-model="state.username"
 						class="input"
-						:value.sync="state.username"
 						:readonly="readonly"
 						:label="t('integration_watsonx', 'Username')"
 						:show-trailing-button="!!state.username"
-						@update:value="onInput"
+						@update:model-value="onInput"
 						@trailing-button-click="state.username = '' ; onInput()"
 						@focus="readonly = false">
 						<AccountOutlineIcon />
@@ -36,13 +36,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-api-key"
+						v-model="state.api_key"
 						class="input"
-						:value.sync="state.api_key"
 						:readonly="readonly"
 						type="password"
 						:label="t('integration_watsonx', 'API key')"
 						:show-trailing-button="!!state.api_key"
-						@update:value="onSensitiveInput"
+						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.api_key = '' ; onSensitiveInput()"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -54,13 +54,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-project-id"
+						v-model="state.project_id"
 						class="input"
-						:value.sync="state.project_id"
 						:readonly="readonly"
 						type="password"
 						:label="t('integration_watsonx', 'Project ID')"
 						:show-trailing-button="!!state.project_id"
-						@update:value="onSensitiveInput"
+						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.project_id = '' ; onSensitiveInput()"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -69,13 +69,13 @@
 				<div class="line">
 					<NcTextField
 						id="watsonx-space-id"
+						v-model="state.space_id"
 						class="input"
-						:value.sync="state.space_id"
 						:readonly="readonly"
 						type="password"
 						:label="t('integration_watsonx', 'Space ID')"
 						:show-trailing-button="!!state.space_id"
-						@update:value="onSensitiveInput"
+						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.space_id = '' ; onSensitiveInput()"
 						@focus="readonly = false">
 						<KeyOutlineIcon />
@@ -133,8 +133,8 @@ import AccountOutlineIcon from 'vue-material-design-icons/AccountOutline.vue'
 import InformationOutlineIcon from 'vue-material-design-icons/InformationOutline.vue'
 import KeyOutlineIcon from 'vue-material-design-icons/KeyOutline.vue'
 
-import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
