@@ -8,10 +8,9 @@
 			{{ t('integration_watsonx', 'IBM watsonx.ai integration') }}
 		</h2>
 		<div id="watsonx-content">
-			<p v-if="state.is_custom_service" class="settings-hint">
-				<InformationOutlineIcon :size="20" class="icon" />
+			<NcNoteCard v-if="state.is_custom_service" type="info">
 				{{ t('integration_watsonx', 'Your administrator defined a custom service address') }}
-			</p>
+			</NcNoteCard>
 			<div>
 				<NcNoteCard v-if="state.is_custom_service" type="info">
 					{{ t('integration_watsonx', 'Leave the username or API key empty to use the one defined by administrators') }}
@@ -30,7 +29,9 @@
 						@update:model-value="onInput"
 						@trailing-button-click="state.username = '' ; onInput()"
 						@focus="readonly = false">
-						<AccountOutlineIcon />
+						<template #icon>
+							<AccountOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<div class="line">
@@ -45,7 +46,9 @@
 						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.api_key = '' ; onSensitiveInput()"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<NcNoteCard type="info">
@@ -63,7 +66,9 @@
 						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.project_id = '' ; onSensitiveInput()"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<div class="line">
@@ -78,7 +83,9 @@
 						@update:model-value="onSensitiveInput"
 						@trailing-button-click="state.space_id = '' ; onSensitiveInput()"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<div v-if="!state.is_custom_service">
@@ -87,6 +94,7 @@
 						&nbsp;
 						<a :href="apiKeyUrl" target="_blank" class="external">
 							{{ apiKeyUrl }}
+							<OpenInNewIcon :size="20" />
 						</a>
 					</NcNoteCard>
 				</div>
@@ -130,8 +138,8 @@
 
 <script>
 import AccountOutlineIcon from 'vue-material-design-icons/AccountOutline.vue'
-import InformationOutlineIcon from 'vue-material-design-icons/InformationOutline.vue'
 import KeyOutlineIcon from 'vue-material-design-icons/KeyOutline.vue'
+import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
 
 import NcTextField from '@nextcloud/vue/components/NcTextField'
 import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
@@ -149,7 +157,7 @@ export default {
 	components: {
 		AccountOutlineIcon,
 		KeyOutlineIcon,
-		InformationOutlineIcon,
+		OpenInNewIcon,
 		NcNoteCard,
 		NcTextField,
 	},
@@ -246,20 +254,23 @@ export default {
 #watsonx_prefs {
 	#watsonx-content {
 		margin-left: 40px;
-	}
-	h2,
-	.line,
-	.settings-hint {
 		display: flex;
-		align-items: center;
-		margin-top: 12px;
-		.icon {
-			margin-right: 4px;
-		}
+		flex-direction: column;
+		gap: 4px;
+		max-width: 800px;
 	}
 
-	h2 .icon {
-		margin-right: 8px;
+	h2 {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		gap: 8px;
+	}
+
+	a.external {
+		display: flex;
+		align-items: center;
+		gap: 4px;
 	}
 
 	.quota-table {
@@ -272,21 +283,6 @@ export default {
 		th, td {
 			width: 200px;
 			text-align: left;
-		}
-	}
-
-	.line {
-		> label {
-			width: 300px;
-			display: flex;
-			align-items: center;
-		}
-		> input, .input {
-			width: 300px;
-		}
-		.spacer {
-			display: inline-block;
-			width: 36px;
 		}
 	}
 

@@ -26,7 +26,9 @@
 						:show-trailing-button="!!state.url"
 						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.url = '' ; onSensitiveInput(true)">
-						<EarthIcon />
+						<template #icon>
+							<EarthIcon :size="20" />
+						</template>
 					</NcTextField>
 					<NcButton type="tertiary"
 						:title="t('integration_watsonx', 'Leave empty to use {watsonxApiUrl}', { watsonxApiUrl: 'https://us-south.ml.cloud.ibm.com' })">
@@ -71,7 +73,9 @@
 						:show-trailing-button="!!state.request_timeout"
 						@update:model-value="onInput()"
 						@trailing-button-click="state.request_timeout = '' ; onInput()">
-						<TimerAlertOutlineIcon />
+						<template #icon>
+							<TimerAlertOutlineIcon :size="20" />
+						</template>
 						<template #trailing-button-icon>
 							<CloseIcon :size="20" />
 						</template>
@@ -97,7 +101,9 @@
 						:show-trailing-button="!!state.username"
 						@update:model-value="onInput()"
 						@trailing-button-click="state.username = '' ; onInput()">
-						<AccountOutlineIcon />
+						<template #icon>
+							<AccountOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 					<NcButton type="tertiary"
 						:title="t('integration_watsonx', 'A username is required to authenticate to a self-hosted service (via IBM Cloud Pak for Data)')">
@@ -118,7 +124,9 @@
 						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.api_key = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<NcNoteCard v-if="isUsingIbmCloud" type="info">
@@ -152,7 +160,9 @@
 						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.project_id = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<div class="line">
@@ -167,7 +177,9 @@
 						@update:model-value="onSensitiveInput(true)"
 						@trailing-button-click="state.space_id = '' ; onSensitiveInput(true)"
 						@focus="readonly = false">
-						<KeyOutlineIcon />
+						<template #icon>
+							<KeyOutlineIcon :size="20" />
+						</template>
 					</NcTextField>
 				</div>
 				<NcNoteCard type="info">
@@ -179,8 +191,8 @@
 					{{ t('integration_watsonx', 'Text generation') }}
 				</h2>
 				<div class="line column">
-					<label>
-						<EarthIcon :size="20" class="icon" />
+					<label class="line">
+						<EarthIcon :size="20" />
 						{{ t('integration_watsonx', 'Text completion endpoint') }}
 					</label>
 					<div class="radios">
@@ -365,11 +377,11 @@
 				<h2>
 					{{ t('integration_watsonx', 'Select enabled features') }}
 				</h2>
-				<NcCheckboxRadioSwitch
+				<NcFormBoxSwitch
 					:model-value="state.llm_provider_enabled"
 					@update:model-value="onCheckboxChanged($event, 'llm_provider_enabled', false)">
 					{{ t('integration_watsonx', 'Text processing providers (to generate text, summarize, context write, etc.)') }}
-				</NcCheckboxRadioSwitch>
+				</NcFormBoxSwitch>
 			</div>
 		</div>
 	</div>
@@ -385,6 +397,7 @@ import TimerAlertOutlineIcon from 'vue-material-design-icons/TimerAlertOutline.v
 
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcFormBoxSwitch from '@nextcloud/vue/components/NcFormBoxSwitch'
 import NcInputField from '@nextcloud/vue/components/NcInputField'
 import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import NcSelect from '@nextcloud/vue/components/NcSelect'
@@ -415,6 +428,7 @@ export default {
 		NcTextField,
 		NcInputField,
 		NcNoteCard,
+		NcFormBoxSwitch,
 	},
 
 	data() {
@@ -630,6 +644,10 @@ export default {
 #watsonx_prefs {
 	#watsonx-content {
 		margin-left: 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		max-width: 800px;
 	}
 
 	h2 {
@@ -667,22 +685,11 @@ export default {
 
 	.line {
 		display: flex;
-		align-items: center;
+		align-items: end;
+		gap: 4px;
 		margin-top: 12px;
-		.icon {
-			margin-right: 4px;
-		}
 		&.line-select {
 			align-items: end;
-		}
-		> label {
-			width: 350px;
-			display: flex;
-			align-items: center;
-		}
-		> input, .input {
-			width: 350px;
-			margin-top: 0;
 		}
 		> input:invalid {
 			border-color: var(--color-error);
