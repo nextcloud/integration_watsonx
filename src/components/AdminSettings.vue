@@ -410,6 +410,7 @@ import { confirmPassword } from '@nextcloud/password-confirmation'
 import { generateUrl } from '@nextcloud/router'
 import debounce from 'debounce'
 
+const API_VERSION = '2024-03-14'
 const DEFAULT_MODEL_ITEM = { id: 'Default', value: 'Default', label: 'Default' }
 
 export default {
@@ -452,9 +453,9 @@ export default {
 	computed: {
 		modelEndpointUrl() {
 			if (this.state.url === '') {
-				return 'https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs'
+				return 'https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?version=' + API_VERSION
 			}
-			return this.state.url.replace(/\/*$/, '/ml/v1/foundation_model_specs')
+			return this.state.url.replace(/\/*$/, '/ml/v1/foundation_model_specs?version=' + API_VERSION)
 		},
 		configured() {
 			return !!this.state.api_key && (this.isUsingIbmCloud || !!this.state.username)

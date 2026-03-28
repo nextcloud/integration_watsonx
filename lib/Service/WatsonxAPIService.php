@@ -106,10 +106,7 @@ class WatsonxAPIService {
 
 		try {
 			$this->logger->debug('Actually getting watsonx.ai models with a network request');
-			$params = [
-				'version' => Application::WATSONX_API_VERSION,
-			];
-			$modelsResponse = $this->request($userId, '/ml/v1/foundation_model_specs', $params);
+			$modelsResponse = $this->request($userId, '/ml/v1/foundation_model_specs?version=' . Application::WATSONX_API_VERSION);
 		} catch (Exception $e) {
 			$this->logger->warning('Error retrieving models (exc): ' . $e->getMessage());
 			$this->areCredsValid = false;
@@ -771,7 +768,7 @@ class WatsonxAPIService {
 					$paramsContent = http_build_query($params);
 					$url .= '?' . $paramsContent;
 				} else {
-					$options['body'] = $params;
+					$options['body'] = $this->watsonxSettingsService->isUsingIbmCloud() ? $params : json_encode($params);
 				}
 			}
 
