@@ -11,6 +11,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-13
+
+### Changed
+
+- Migrate to Vue 3. #37
+- Bump max supported Nextcloud version to 34. #52
+- Update npm packages. #34 #36 #38 #42 #53
+- Update composer packages. #40
+
+### Fixed
+
+- Specify API version in query parameter of API requests. #35
+
 ## [1.1.0] - 2025-11-28
 
 ### Added
@@ -66,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial app release.
 
-[Unreleased]: https://github.com/nextcloud/integration_watsonx/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/nextcloud/integration_watsonx/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/nextcloud/integration_watsonx/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/nextcloud/integration_watsonx/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/nextcloud/integration_watsonx/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/nextcloud/integration_watsonx/compare/v1.0.3...v1.0.4
