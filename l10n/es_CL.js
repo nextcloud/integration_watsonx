@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_watsonx",
     {
+    "Default" : "Por defecto",
     "Example: {example}" : "Ejemplo: {example}",
     "Request timeout (seconds)" : "Tiemo de vida de la solicitud (segundos)",
     "Authentication" : "Autenticación",
