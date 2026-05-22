@@ -22,7 +22,7 @@ OC.L10N.register(
     "Model" : "Model",
     "The model used to generate the completion" : "Tamamlarken kullanılacak model",
     "Change Tone" : "Tonu değiştir",
-    "Ask a question about your data." : "Verileriniz hakkında bir soru sorun.",
+    "Ask a question about your data." : "Verileriniz ile ilgili bir soru sorun.",
     "Input text" : "Giriş yazısı",
     "Write a text that you want the assistant to rewrite in another tone." : "Yardımcının başka bir tonda yeniden yazmasını istediğiniz bir yazı yazın",
     "Desired tone" : "İstenilen ton",
