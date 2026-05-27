@@ -21,7 +21,7 @@ OC.L10N.register(
     "Example: {example}" : "Pavyzdys: {example}",
     "Request timeout (seconds)" : "Prisijungimo laikas (sekundėmis)",
     "Authentication" : "Tapatybės nustatymas",
-    "Username" : "Naudotojo vardas",
+    "Username" : "Vartotojo vardas",
     "API key" : "API raktas",
     "Usage" : "Naudojimas"
 },
