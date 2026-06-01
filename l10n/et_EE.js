@@ -37,7 +37,9 @@ OC.L10N.register(
     "Example: {example}" : "Näide: {example}",
     "Leave empty to use {watsonxApiUrl}" : "Jäta tühjaks, kui soovid kasutada {watsonxApiUrl} aadressi",
     "Service name (optional)" : "Teenuse nimi (valikuline)",
+    "This name will be displayed as provider name in the AI admin settings" : "Seda nime kuvatakse teenusepakkuja nimena tehiasru haldusseadistustes",
     "Request timeout (seconds)" : "Päringu aegumine (sekundites)",
+    "Timeout for the request to the external API" : "Välisele API-le saadetud päringu aegumine",
     "Authentication" : "Autentimine",
     "Username (mandatory)" : "Kasutajanimi (kohustuslik)",
     "API key (mandatory)" : "API võti (kohustuslik)",
@@ -61,6 +63,7 @@ OC.L10N.register(
     "Username" : "Kasutajanimi",
     "API key" : "API võti",
     "Usage quota info" : "Kasutuskvoodi teave",
-    "Usage" : "Kasutus"
+    "Usage" : "Kasutus",
+    "Specifying your own API key will allow unlimited usage" : "Oma API-võtme sisestamine võimaldab piiramatut kasutust"
 },
 "nplurals=2; plural=(n != 1);");
