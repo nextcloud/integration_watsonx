@@ -2,6 +2,7 @@ OC.L10N.register(
     "integration_watsonx",
     {
     "Default" : "پیش‌فرض",
+    "Text generation" : "تولید متن",
     "Bad HTTP method" : "روش HTTP بد",
     "Bad credentials" : "اعتبارنامه بد",
     "Detect language" : "تشخیص زبان",
