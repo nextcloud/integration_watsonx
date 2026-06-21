@@ -37,6 +37,7 @@ OC.L10N.register(
     "Service URL" : "Teenuse võrguaadress",
     "Example: {example}" : "Näide: {example}",
     "Leave empty to use {watsonxApiUrl}" : "Jäta tühjaks, kui soovid kasutada {watsonxApiUrl} aadressi",
+    "With the current configuration, the target URL used to get the models is:" : "Praeguse seadistuse puhul on mudelite hankimiseks kasutatav võrguaadress järgmine:",
     "Service name (optional)" : "Teenuse nimi (valikuline)",
     "This name will be displayed as provider name in the AI admin settings" : "Seda nime kuvatakse teenusepakkuja nimena tehiasru haldusseadistustes",
     "Request timeout (seconds)" : "Päringu aegumine (sekundites)",
