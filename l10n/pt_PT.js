@@ -5,6 +5,7 @@ OC.L10N.register(
     "Bad HTTP method" : "Método HTTP incorreto",
     "Bad credentials" : "Credenciais inválidas",
     "Change Tone" : "Mudar o Tom",
+    "In which tone should your text be rewritten?" : "Em qual tom seu texto deve ser reescrito?",
     "The rewritten text in the desired tone, written by the assistant:" : "O texto reescrito no tom desejado, escrito pelo assistente:",
     "Example: {example}" : "Exemplo: {example}",
     "Request timeout (seconds)" : "Pedido expira (segundos)",
