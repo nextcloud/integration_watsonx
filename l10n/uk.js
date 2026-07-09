@@ -36,7 +36,7 @@ OC.L10N.register(
     "Failed to load quota info" : "Не вдалося завантажити інформацію про квоту",
     "Watsonx.ai admin options saved" : "Параметри адміністрування Watsonx.ai збережено",
     "Failed to save watsonx.ai admin options" : "Не вдалося зберегти параметри адміністрування watsonx.ai",
-    "The Assistant app is not enabled. You need it to use the features provided by the watsonx.ai integration app." : "Додаток Асистент не ввімкнено. Він потрібен, щоб використовувати функції, які надає інтеграційний додаток watsonx.ai.",
+    "The Assistant app is not enabled. You need it to use the features provided by the watsonx.ai integration app." : "Застосунок Асистент не увімкнено. Він потрібен, щоб використовувати функції, які надає інтеграційний застосунок watsonx.ai.",
     "Assistant app" : "Помічник програми",
     "Service URL" : "URL-адреса сервісу",
     "Example: {example}" : "Приклад: {example}",
