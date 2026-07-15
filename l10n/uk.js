@@ -1,7 +1,7 @@
 OC.L10N.register(
     "integration_watsonx",
     {
-    "Invalid models response received" : "Отримано відповідь про невірні моделі",
+    "Invalid models response received" : "Отримано відповідь щодо недійсних моделей",
     "Default" : "Типово",
     "Text generation" : "Генерація тексту",
     "tokens" : "жетони",
