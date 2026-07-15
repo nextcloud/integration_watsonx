@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-07-15
+
+### Changed
+
+- Bump max supported Nextcloud version to 35. #63
+
 ## [1.2.0] - 2026-04-13
 
 ### Changed
@@ -79,7 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial app release.
 
-[Unreleased]: https://github.com/nextcloud/integration_watsonx/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/nextcloud/integration_watsonx/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/nextcloud/integration_watsonx/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/nextcloud/integration_watsonx/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/nextcloud/integration_watsonx/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/nextcloud/integration_watsonx/compare/v1.0.4...v1.0.5
