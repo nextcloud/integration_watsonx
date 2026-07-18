@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Default" : "Предефиниран",
     "Bad credentials" : "Неточни акредитиви",
+    "Detect language" : "Детектирај јазик",
     "Example: {example}" : "Пример: {example}",
     "Authentication" : "Автентикација",
     "Username" : "Корисничко име",
