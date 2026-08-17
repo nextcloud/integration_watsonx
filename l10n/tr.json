@@ -57,7 +57,7 @@
     "Project ID" : "Proje kimliği",
     "Space ID" : "Alan kimliği",
     "A watsonx.ai project ID or space ID is required to generate text" : "Yazı oluşturmak için bir watsonx.ai proje kimliği veya alan kimliği gereklidir",
-    "Text completion endpoint" : "Yazı tamamlama uç birimi",
+    "Text completion endpoint" : "Yazı tamamlama uç noktası",
     "Chat completions" : "Sohbet tamamlamaları",
     "Completions" : "Tamamlamalar",
     "Using the chat endpoint may improve text generation quality for \"instruction following\" fine-tuned models." : "Sohbet uç noktasının kullanılması, \"yönergeyi izleyen\" ince ayarlı modeller için yazı oluşturma kalitesini iyileştirebilir.",
