@@ -3,6 +3,7 @@
     "Bad credentials" : "Gölluð auðkenni",
     "Detect language" : "Greina tungumál",
     "Input text" : "Inntakstexti",
+    "Generated response" : "Framkallað svar",
     "Example: {example}" : "Dæmi: {example}",
     "Request timeout (seconds)" : "Tímamörk á beiðni (sekúndur)",
     "Authentication" : "Auðkenning",
