@@ -1,4 +1,5 @@
 { "translations": {
+    "Default" : "Por defecto",
     "Example: {example}" : "Ejemplo: {example}",
     "Request timeout (seconds)" : "Tiemo de vida de la solicitud (segundos)",
     "Authentication" : "Autenticación",
