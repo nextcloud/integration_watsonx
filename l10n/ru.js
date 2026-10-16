@@ -46,7 +46,7 @@ OC.L10N.register(
     "This should include the domain name and API base path of your watsonx.ai instance. This URL will be accessed by your Nextcloud server." : "Должно включать доменное имя и базовый путь API вашего экземпляра watsonx.ai. Этот URL-адрес будет доступен вашему серверу Nextcloud.",
     "Service name (optional)" : "Имя сервиса (необязательно)",
     "Example: watsonx.ai of university ABC" : "Пример: watsonx.ai университета ABC",
-    "This name will be displayed as provider name in the AI admin settings" : "Это имя будет отображаться как имя провайдера в настройках администратора ИИ.",
+    "This name will be displayed as provider name in the AI admin settings" : "Это имя будет показываться как имя провайдера в настройках администратора ИИ.",
     "Request timeout (seconds)" : "Таймаут запроса (в секундах)",
     "Timeout for the request to the external API" : "Время ожидания запроса к внешнему API",
     "Authentication" : "Аутентификация",
