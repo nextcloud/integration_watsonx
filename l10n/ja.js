@@ -17,7 +17,7 @@ OC.L10N.register(
     "In which tone should your text be rewritten?" : "どのトーンで書き直すべきか？",
     "Generated response" : "生成された応答",
     "The rewritten text in the desired tone, written by the assistant:" : "アシスタントが書き直した、希望するトーンの文章：",
-    "Example: {example}" : "例: {プレースホルダー}",
+    "Example: {example}" : "例: {example}",
     "With the current configuration, the target URL used to get the models is:" : "現在の設定では、モデルを取得するために使用されるターゲットURLは次のとおりです：",
     "Request timeout (seconds)" : "リクエストがタイムアウトするまでの秒数",
     "Authentication" : "認証",
