@@ -4,6 +4,7 @@ OC.L10N.register(
     "Default" : "Implicită",
     "Bad HTTP method" : "Metodă HTTP nepotrivită",
     "Bad credentials" : "Credențiale greșite",
+    "Detect language" : "Detectează limba",
     "Change Tone" : "Schimbă tonul",
     "Input text" : "Text de intrare",
     "Write a text that you want the assistant to rewrite in another tone." : "Scrie un text pe care vrei ca asistentul să-l rescrie pe alt ton.",
