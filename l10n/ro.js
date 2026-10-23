@@ -13,6 +13,7 @@ OC.L10N.register(
     "Generated response" : "Răspuns generat",
     "The rewritten text in the desired tone, written by the assistant:" : "Textul rescris de asistent pe tonul dorit:",
     "Example: {example}" : "Exemplu: {example}",
+    "Request timeout (seconds)" : "Timpul de expirare a solicitării (secunde)",
     "Authentication" : "Autentificare",
     "Username" : "Nume utilizator",
     "API key" : "Cheie API"
