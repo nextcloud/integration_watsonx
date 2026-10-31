@@ -70,7 +70,7 @@ OC.L10N.register(
     "Max input tokens per request" : "Maximale Eingabetoken pro Anfrage",
     "Split the prompt into chunks with each chunk being no more than the specified number of tokens (0 disables chunking)" : "Die Eingabeaufforderung in Blöcke aufteilen, wobei jeder Block nicht mehr als die angegebene Anzahl von Tokens umfassen darf (0 deaktiviert das Aufteilen)",
     "Usage limits" : "Nutzungsbeschränkungen",
-    "Quota enforcement time period (days)" : "Zeitraum der Kontingentdurchsetzung (Tage)",
+    "Quota enforcement time period (days)" : "Zeitraum der Kontingentserzwingung (Tage)",
     "Usage quotas per time period" : "Nutzungskontingente pro Zeitraum",
     "Quota type" : "Kontingenttyp",
     "Per-user quota / period" : "Kontingent/Zeitraum pro Benutzer",
